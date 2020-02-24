@@ -1,0 +1,2 @@
+include ':app',':AnalyticsTestingLibrary'
+rootProject.name='AnalyticsTester'
