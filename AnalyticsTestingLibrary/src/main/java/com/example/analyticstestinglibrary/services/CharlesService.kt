@@ -37,10 +37,10 @@ class CharlesService: ProxyService {
         makeRequest(clearURL)
     }
 
-    override fun exportData(): List<ProxyLog>? {
+    override fun exportData(): List<ProxyLog> {
         val type = Types.newParameterizedType(List::class.java, ProxyLog::class.java)
         val proxyLogs = moshi.adapter<List<ProxyLog>>(type)
-        return proxyLogs.fromJson(makeRequest(exportURL))
+        return proxyLogs.fromJson(makeRequest(exportURL)) ?: emptyList()
     }
 
 

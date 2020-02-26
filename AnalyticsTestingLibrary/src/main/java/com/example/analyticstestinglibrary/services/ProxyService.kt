@@ -6,5 +6,5 @@ interface ProxyService {
     fun startRecording()
     fun stopRecording()
     fun clearData()
-    fun exportData(): List<ProxyLog>?
+    fun exportData(): List<ProxyLog>
 }
