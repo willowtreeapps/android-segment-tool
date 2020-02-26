@@ -1,10 +1,10 @@
 package com.example.analyticstestinglibrary
 
-import com.example.analyticstestinglibrary.dataobjects.Segment.Segment
+import com.example.analyticstestinglibrary.dataobjects.segment.Segment
 import com.example.analyticstestinglibrary.dataobjects.proxy.ProxyLog
 import com.squareup.moshi.Moshi
 
-class CharlesSegmentMatcher(val moshi: Moshi, val expectedEvents: List<ExpectedSegmentEvent>): ProxyMatcher {
+class ProxySegmentMatcher(val moshi: Moshi, val expectedEvents: List<ExpectedSegmentEvent>): ProxyMatcher {
 
     var allEvents : MutableList<ExpectedSegmentEvent> = ArrayList()
 

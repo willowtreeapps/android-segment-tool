@@ -1,5 +1,9 @@
 package com.example.analyticstestinglibrary.services
 
+import com.example.analyticstestinglibrary.dataobjects.proxy.ProxyLog
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
@@ -10,6 +14,8 @@ class CharlesService: ProxyService {
     val exportURL = "http://control.charles/session/export-json"
 
     val client = OkHttpClient()
+
+    private val moshi: Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
     private fun makeRequest(urlString: String): String? {
         val request = Request.Builder()
@@ -31,8 +37,10 @@ class CharlesService: ProxyService {
         makeRequest(clearURL)
     }
 
-    override fun exportData(): String? {
-        return makeRequest(exportURL)
+    override fun exportData(): List<ProxyLog>? {
+        val type = Types.newParameterizedType(List::class.java, ProxyLog::class.java)
+        val proxyLogs = moshi.adapter<List<ProxyLog>>(type)
+        return proxyLogs.fromJson(makeRequest(exportURL))
     }
 
 

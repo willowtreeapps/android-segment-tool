@@ -1,4 +1,4 @@
-package com.example.analyticstestinglibrary.dataobjects.Segment
+package com.example.analyticstestinglibrary.dataobjects.segment
 
 import com.squareup.moshi.Json
 

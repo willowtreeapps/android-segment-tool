@@ -1,4 +1,4 @@
-package com.example.analyticstestinglibrary.dataobjects.Segment
+package com.example.analyticstestinglibrary.dataobjects.segment
 
 data class BatchElement(
     val category: String? = null,
