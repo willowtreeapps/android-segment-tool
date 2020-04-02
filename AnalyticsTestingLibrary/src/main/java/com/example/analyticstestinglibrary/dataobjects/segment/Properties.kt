@@ -12,6 +12,8 @@ data class Properties(
     val appName: String? = null,
     @Json(name = "app_platform")
     val appPlatform: String? = null,
+    @Json(name = "app_build")
+    val appBuild: String? = null,
     @Json(name = "app_version")
     val appVersion: String? = null,
     @Json(name = "page_name")
@@ -19,6 +21,14 @@ data class Properties(
     @Json(name = "page_type")
     val pageType: String? = null,
     val livestream: String? = null,
+    @Json(name = "push_enabled")
+    val pushEnabled: Boolean? = null,
+    @Json(name= "page_is_dark_mode")
+    val pageIsDarkMode: Boolean? = null,
+    @Json(name = "page_login_state")
+    val pageLoginState: String? = null,
+    @Json(name = "page_content_language")
+    val pageContentLanguage: String? = null,
     @Json(name = "video_player")
     val videoPlayer: String? = null,
     @Json(name = "video_player_state")
