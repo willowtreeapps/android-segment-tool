@@ -15,7 +15,7 @@ class ProxySegmentMatcher(val moshi: Moshi, val expectedEvents: List<ExpectedSeg
                     .fromJson(proxyLog.request.body!!.text!!)
                 if (segment?.batch != null) {
                     for (segmentCall in segment?.batch) {
-                        allEvents.add(ExpectedSegmentEvent(segmentCall.event, segmentCall.properties?.pageType))
+                        allEvents.add(ExpectedSegmentEvent(segmentCall.event ?: segmentCall.name, segmentCall.properties?.pageType))
                         if (allEvents.containsAll(expectedEvents)) {
                             return ProxyLogMatchResult(isMatch = true, finishedMatching = true)
                         }
